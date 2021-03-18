@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/children.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    我是子页面
+    <button onclick="postEvent()">向父组件发事件</button>
+    <script>
+
+        function postEvent() {
+            gos.event.emit('test2', { key: 'children' })
+        }
+
+
+        gos.event.addEventListener('test', () => {
+            console.log('我是子组件,我接收到来自父组件发送的事件。');
+        })
+
+        gos.event.addEventListener('test2', () => {
+            console.log('我是子组件,我接收到来自自己发送的事件。');
+        })
+
+    </script>
+</body>
+
+</html>
